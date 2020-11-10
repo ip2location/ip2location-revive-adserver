@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<?xml-stylesheet type="text/xsl" href=""?>
+
+<plugin>
+    <name>IP2LocationDeliveryLimitations</name>
+    <creationDate>2018-04-25</creationDate>
+    <author>IP2Location</author>
+    <authorEmail>support@ip2location.com</authorEmail>
+    <authorUrl>http://www.ip2location.com/</authorUrl>
+    <license>GPL</license>
+    <description>IP2Location Geotargeting API Plugin</description>
+    <version>2.1.0</version>
+    <oxversion>4.1.3</oxversion>
+    <extends>deliveryLimitations</extends>
+
+    <install>
+
+        <files>
+        
+            <file path="{MODULEPATH}deliveryLimitations/Geo/">IP2LocationAreaCode.class.php</file>
+            <file path="{MODULEPATH}deliveryLimitations/Geo/">IP2LocationAreaCode.delivery.php</file>
+            
+            <file path="{MODULEPATH}deliveryLimitations/Geo/">IP2LocationCity.class.php</file>
+            <file path="{MODULEPATH}deliveryLimitations/Geo/">IP2LocationCity.delivery.php</file>
+            <file path="{MODULEPATH}deliveryLimitations/Geo/">IP2LocationCity.res.inc.php</file>
+            
+            <file path="{MODULEPATH}deliveryLimitations/Geo/">IP2LocationCountry.class.php</file>
+            <file path="{MODULEPATH}deliveryLimitations/Geo/">IP2LocationCountry.delivery.php</file>
+            <file path="{MODULEPATH}deliveryLimitations/Geo/">IP2LocationCountry.res.inc.php</file>
+            
+            <file path="{MODULEPATH}deliveryLimitations/Geo/">IP2LocationDomain.class.php</file>
+            <file path="{MODULEPATH}deliveryLimitations/Geo/">IP2LocationDomain.delivery.php</file>
+            
+            <file path="{MODULEPATH}deliveryLimitations/Geo/">IP2LocationElevation.class.php</file>
+            <file path="{MODULEPATH}deliveryLimitations/Geo/">IP2LocationElevation.delivery.php</file>
+            
+            <file path="{MODULEPATH}deliveryLimitations/Geo/">IP2LocationISP.class.php</file>
+            <file path="{MODULEPATH}deliveryLimitations/Geo/">IP2LocationISP.delivery.php</file>           
+            <file path="{MODULEPATH}deliveryLimitations/Geo/">IP2LocationISP.res.inc.php</file>
+            
+            <file path="{MODULEPATH}deliveryLimitations/Geo/">IP2LocationRegion.class.php</file>
+            <file path="{MODULEPATH}deliveryLimitations/Geo/">IP2LocationRegion.delivery.php</file>
+            <file path="{MODULEPATH}deliveryLimitations/Geo/">IP2LocationRegion.res.inc.php</file>
+            
+            <file path="{MODULEPATH}deliveryLimitations/Geo/">IP2LocationTimezone.class.php</file>
+            <file path="{MODULEPATH}deliveryLimitations/Geo/">IP2LocationTimezone.delivery.php</file>
+            <file path="{MODULEPATH}deliveryLimitations/Geo/">IP2LocationTimezone.res.inc.php</file>
+            
+            <file path="{MODULEPATH}deliveryLimitations/Geo/">IP2LocationUsageType.class.php</file>
+            <file path="{MODULEPATH}deliveryLimitations/Geo/">IP2LocationUsageType.delivery.php</file>
+            <file path="{MODULEPATH}deliveryLimitations/Geo/">IP2LocationUsageType.res.inc.php</file>
+            
+            <file path="{MODULEPATH}deliveryLimitations/Geo/">IP2LocationZIPCode.class.php</file>
+            <file path="{MODULEPATH}deliveryLimitations/Geo/">IP2LocationZIPCode.delivery.php</file>
+
+			<file path="{MODULEPATH}deliveryLimitations/Geo/">IP2LocationProxyType.class.php</file>
+            <file path="{MODULEPATH}deliveryLimitations/Geo/">IP2LocationProxyType.delivery.php</file>
+            <file path="{MODULEPATH}deliveryLimitations/Geo/">IP2LocationProxyType.res.inc.php</file>
+
+			<file path="{MODULEPATH}deliveryLimitations/Geo/">IP2LocationIsProxy.class.php</file>
+            <file path="{MODULEPATH}deliveryLimitations/Geo/">IP2LocationIsProxy.delivery.php</file>
+            <file path="{MODULEPATH}deliveryLimitations/Geo/">IP2LocationIsProxy.res.inc.php</file>
+                    
+            <file path="{MODULEPATH}deliveryLimitations/Geo/data/">country-region-city.csv</file>
+            
+            <file path="{MODULEPATH}deliveryLimitations/Geo/lib/">IP2LocationCommaSeparatedData.class.php</file>
+            <file path="{MODULEPATH}deliveryLimitations/Geo/lib/">IP2LocationNumeric.class.php</file>
+            <file path="{MODULEPATH}deliveryLimitations/Geo/lib/">IP2LocationNumeric.delivery.php</file>
+            <file path="{MODULEPATH}deliveryLimitations/Geo/lib/">IP2LocationText.class.php</file>
+
+        </files>
+
+        <components>
+        
+           <component>
+               <name>IP2LocationAreaCode</name>
+           </component>
+           <component>
+               <name>IP2LocationCity</name>
+           </component>
+           <component>
+               <name>IP2LocationCountry</name>
+           </component>
+           <component>
+               <name>IP2LocationDomain</name>
+           </component>
+           <component>
+               <name>IP2LocationElevation</name>
+           </component>
+           <component>
+               <name>IP2LocationISP</name>
+           </component>
+           <component>
+               <name>IP2LocationRegion</name>
+           </component>
+           <component>
+               <name>IP2LocationTimezone</name>
+           </component>
+           <component>
+               <name>IP2LocationUsageType</name>
+           </component>
+           <component>
+               <name>IP2LocationZIPCode</name>
+           </component>
+		    <component>
+               <name>IP2LocationIsProxy</name>
+           </component>
+		    <component>
+               <name>IP2LocationProxyType</name>
+           </component>
+
+        </components>
+
+    </install>
+
+</plugin>

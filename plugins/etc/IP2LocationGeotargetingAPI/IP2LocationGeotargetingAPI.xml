@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<?xml-stylesheet type="text/xsl" href=""?>
+
+<plugin>
+	<name>IP2LocationGeotargetingAPI</name>
+	<creationDate>2018-04-25</creationDate>
+	<author>IP2Location</author>
+	<authorEmail>support@ip2location.com</authorEmail>
+	<authorUrl>http://www.ip2location.com/</authorUrl>
+	<license>GPL</license>
+	<description>IP2Location Geotargeting API Plugin</description>
+	<version>2.0.0</version>
+	<oxversion>4.1.3</oxversion>
+	<extends>geoTargeting</extends>
+
+	<install>
+		<files>
+			<file path="{MODULEPATH}geoTargeting/IP2LocationGeotargetingAPI/">IP2LocationGeotargetingAPI.class.php</file>
+			<file path="{MODULEPATH}geoTargeting/IP2LocationGeotargetingAPI/">IP2LocationGeotargetingAPI.delivery.php</file>
+			<file path="{MODULEPATH}geoTargeting/IP2LocationGeotargetingAPI/lib/">IP2Location.php</file>
+			<file path="{MODULEPATH}geoTargeting/IP2LocationGeotargetingAPI/lib/">IP2Proxy.php</file>
+		</files>
+		<postscript>postscript_install_IP2LocationGeotargetingAPI.php</postscript>
+		<configuration>
+			<setting key="dblocation" type="text" label="IP2Location BIN Database Location" required="1" size="64" visible="1"></setting>
+			<setting key="pxlocation" type="text" label="IP2Proxy BIN Database Location" size="64" visible="1"></setting>
+			<setting key="key" type="text" label="IP2Location Web Service API Key" size="64" visible="1"></setting>
+		</configuration>
+		<components>
+		   <component>
+			   <name>IP2LocationGeotargetingAPI</name>
+		   </component>
+		</components>
+	</install>
+</plugin>

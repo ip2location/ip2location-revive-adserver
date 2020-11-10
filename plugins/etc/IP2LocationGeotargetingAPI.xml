@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<?xml-stylesheet type="text/xsl" href=""?>
+
+<plugin>
+    <name>IP2LocationGeotargetingAPI</name>
+    <creationDate>2018-04-25</creationDate>
+    <author>IP2Location</author>
+    <authorEmail>support@ip2location.com</authorEmail>
+    <authorUrl>http://www.ip2location.com/</authorUrl>
+    <license>GPL</license>
+    <description>IP2Location Geotargeting API Plugin</description>
+    <version>2.1.0</version>
+    <oxversion>4.2.0</oxversion>
+    <type>package</type>
+
+    <install>
+        <contents>
+            <group name="IP2LocationGeotargetingAPI">0</group>
+            <group name="IP2LocationDeliveryLimitations">1</group>
+        </contents>
+    </install>
+</plugin>
