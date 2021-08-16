@@ -2,7 +2,7 @@
 
 This plugin enables publishers to customize advertisement  delivery options by visitor's country, region, city, time zone, ISP  name, connection speed, domain name, area code, ZIP code, elevation, and usage type.
 
-Supports up to Revive Adserver 5.0.5.
+Supports up to Revive Adserver 5.x.
 
 
 
