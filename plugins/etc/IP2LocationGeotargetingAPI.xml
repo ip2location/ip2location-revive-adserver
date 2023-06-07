@@ -7,9 +7,9 @@
     <author>IP2Location</author>
     <authorEmail>support@ip2location.com</authorEmail>
     <authorUrl>http://www.ip2location.com/</authorUrl>
-    <license>GPL</license>
+    <license>MIT</license>
     <description>IP2Location Geotargeting API Plugin</description>
-    <version>2.1.0</version>
+    <version>2.2.0</version>
     <oxversion>4.2.0</oxversion>
     <type>package</type>
 

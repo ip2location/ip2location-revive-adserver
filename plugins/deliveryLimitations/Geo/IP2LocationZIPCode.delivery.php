@@ -9,5 +9,5 @@ function MAX_checkGeo_IP2LocationZIPCode($limitation, $op, $aParams = [])
 		$aParams = $GLOBALS['_MAX']['CLIENT_GEO'];
 	}
 
-	return MAX_limitationsMatchStringClientGeo('ip_zipCode', $limitation, $op, $aParams);
+	return MAX_limitationsMatchArrayValue($aParams['ip_zipCode'], $limitation, $op);
 }

@@ -16,8 +16,8 @@ class Plugins_DeliveryLimitations_IP2Location_Numeric extends Plugins_DeliveryLi
 		];
 	}
 
-	function isAllowed()
-	{
-		return true;
-	}
+	public function isAllowed($page = false)
+    {
+        return true;
+    }
 }

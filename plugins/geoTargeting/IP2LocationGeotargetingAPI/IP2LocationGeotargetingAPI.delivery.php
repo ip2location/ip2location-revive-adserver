@@ -4,9 +4,6 @@ function Plugin_geoTargeting_IP2LocationGeotargetingAPI_IP2LocationGeotargetingA
 {
 	$conf = $GLOBALS['_MAX']['CONF'];
 
-	//echo isset($_COOKIE[$conf['var']['viewerGeo']]);
-	// Try and read the data from the geo cookie...
-
 	if ($useCookie && isset($_COOKIE[$conf['var']['viewerGeo']])) {
 		$result = _unpackCookie($_COOKIE[$conf['var']['viewerGeo']]);
 
@@ -14,15 +11,9 @@ function Plugin_geoTargeting_IP2LocationGeotargetingAPI_IP2LocationGeotargetingA
 			return $result;
 		}
 	}
-	if (isset($GLOBALS['_MAX']['GEO_IP'])) {
-		$ip = $GLOBALS['_MAX']['GEO_IP'];
-	} else {
-		$ip = $_SERVER['REMOTE_ADDR'];
-	}
-	//$ip = '117.218.90.209';
 
 	try {
-		$result = getGeo($ip);
+		$result = getGeo($_SERVER['REMOTE_ADDR']);
 
 		// Store this information in the cookie for later use
 		if ($useCookie && (!empty($result))) {
@@ -49,20 +40,24 @@ function getGeo($ipAddress)
 	if (file_exists($conf['IP2LocationGeotargetingAPI']['dblocation']) && @fopen($conf['IP2LocationGeotargetingAPI']['dblocation'], 'rb')) {
 		require_once __DIR__ . '/lib/IP2Location.php';
 
+		if (isset($_SERVER['DEV_MODE'])) {
+			$ipAddress = '8.8.8.8';
+		}
+
 		$loc = new \IP2Location\Database($conf['IP2LocationGeotargetingAPI']['dblocation'], \IP2Location\Database::FILE_IO);
-		$record = $loc->lookup($ipAddress, \IP2Location\Database::ALL);
+		$records = $loc->lookup($ipAddress, \IP2Location\Database::ALL);
 
 		$aUserDetails = [
-			'ip_countryCode' => $record['countryCode'],
-			'ip_regionName'  => $record['regionName'],
-			'ip_cityName'    => $record['cityName'],
-			'ip_isp'         => $record['isp'],
-			'ip_domainName'  => $record['domainName'],
-			'ip_zipCode'     => $record['zipCode'],
-			'ip_timeZone'    => $record['timeZone'],
-			'ip_areaCode'    => $record['areaCode'],
-			'ip_elevation'   => $record['elevation'],
-			'ip_usageType'   => $record['usageType'],
+			'ip_countryCode' => $records['countryCode'],
+			'ip_regionName'  => $records['regionName'],
+			'ip_cityName'    => $records['cityName'],
+			'ip_isp'         => $records['isp'],
+			'ip_domainName'  => $records['domainName'],
+			'ip_zipCode'     => $records['zipCode'],
+			'ip_timeZone'    => $records['timeZone'],
+			'ip_areaCode'    => $records['areaCode'],
+			'ip_elevation'   => $records['elevation'],
+			'ip_usageType'   => $records['usageType'],
 		];
 	}
 

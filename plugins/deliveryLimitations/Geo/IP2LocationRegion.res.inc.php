@@ -20,7 +20,10 @@ if (!isset($GLOBALS['_MAX']['_GEOCACHE']['IP2Location_region'])) {
 		asort($value);
 		$res[$key] = $value;
 	}
-	uasort($res, create_function('$a,$b', 'return strcmp($a[0], $b[0]);'));
+
+	uasort($res, function ($a, $b) {
+		return strcmp($a[0], $b[0]);
+	});
 
 	$GLOBALS['_MAX']['_GEOCACHE']['IP2Location_region'] = $res;
 } else {
