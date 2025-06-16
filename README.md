@@ -16,9 +16,10 @@ Supports up to Revive Adserver 5.x.
 6. Under the **IP2LocationGeotargetingAPI** group, click on "Settings" and configure your IP2Location settings.
 7. Insert the absolute path of your IP2Location BIN database in **IP2Location BIN Database Location**.
 8. If you require IP2Proxy fields, please download the IP2Proxy BIN database and update the path in **IP2Proxy BIN Database Location**.
-9. Click **Save Changes**.
-10. Create/Edit your existing banner and select "Delivery Options".
-11. Customize your delivery options based on IP2Location conditions from the list.
+9. Alternatively, you can also use the free API service from [IP2Location.io](https://www.ip2location.io). Register a free account and insert your API key in the **IP2Location.io Geolocation Service API Key** field.
+10. Click **Save Changes**.
+11. Create/Edit your existing banner and select "Delivery Options".
+12. Customize your delivery options based on IP2Location conditions from the list.
 
 
 

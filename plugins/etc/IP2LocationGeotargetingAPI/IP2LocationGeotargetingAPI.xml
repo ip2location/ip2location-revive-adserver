@@ -6,10 +6,10 @@
 	<creationDate>2018-04-25</creationDate>
 	<author>IP2Location</author>
 	<authorEmail>support@ip2location.com</authorEmail>
-	<authorUrl>http://www.ip2location.com/</authorUrl>
+	<authorUrl>https://www.ip2location.com/</authorUrl>
 	<license>MIT</license>
 	<description>IP2Location Geotargeting API Plugin</description>
-	<version>2.2.0</version>
+	<version>2.3.0</version>
 	<oxversion>4.2.0</oxversion>
 	<extends>geoTargeting</extends>
 
@@ -22,9 +22,10 @@
 		</files>
 		<postscript>postscript_install_IP2LocationGeotargetingAPI.php</postscript>
 		<configuration>
-			<setting key="dblocation" type="text" label="IP2Location BIN Database Location" required="1" size="64" visible="1"></setting>
+			<setting key="dblocation" type="text" label="IP2Location BIN Database Location" size="64" visible="1"></setting>
 			<setting key="pxlocation" type="text" label="IP2Proxy BIN Database Location" size="64" visible="1"></setting>
 			<setting key="key" type="text" label="IP2Location Web Service API Key" size="64" visible="1"></setting>
+			<setting key="iokey" type="text" label="IP2Location.io Geolocation Service API Key" size="64" visible="1"></setting>
 		</configuration>
 		<components>
 		   <component>

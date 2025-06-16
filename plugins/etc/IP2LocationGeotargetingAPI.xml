@@ -6,10 +6,10 @@
     <creationDate>2018-04-25</creationDate>
     <author>IP2Location</author>
     <authorEmail>support@ip2location.com</authorEmail>
-    <authorUrl>http://www.ip2location.com/</authorUrl>
+    <authorUrl>https://www.ip2location.com/</authorUrl>
     <license>MIT</license>
     <description>IP2Location Geotargeting API Plugin</description>
-    <version>2.2.0</version>
+    <version>2.3.0</version>
     <oxversion>4.2.0</oxversion>
     <type>package</type>
 

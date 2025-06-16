@@ -87,6 +87,21 @@ function getGeo($ipAddress)
 				'ip_isp'         => $json->isp,
 			];
 		}
+	} else if (!$aUserDetails && $conf['IP2LocationGeotargetingAPI']['iokey']) {
+		if (($json = json_decode(file_get_contents('https://api.ip2location.op/?key=' . $conf['IP2LocationGeotargetingAPI']['iokey'] . '&ip=' . $ipAddress . '&format=json'))) !== null) {
+			$aUserDetails = [
+				'ip_countryCode' => $json->country_code,
+				'ip_regionName'  => $json->region_name,
+				'ip_cityName'    => $json->city_name,
+				'ip_isp'         => $json->isp,
+				'ip_domainName'  => $json->domain,
+				'ip_zipCode'     => $json->zip_code,
+				'ip_timeZone'    => $json->time_zone,
+				'ip_areaCode'    => $json->area_code,
+				'ip_elevation'   => $json->elevation,
+				'ip_usageType'   => $json->usage_type,
+			];
+		}
 	}
 
 	if ($aUserDetails) {
