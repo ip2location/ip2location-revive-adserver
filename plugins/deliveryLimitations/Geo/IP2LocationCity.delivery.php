@@ -19,8 +19,8 @@ function MAX_checkGeo_IP2LocationCity($limitation, $op, $aParams = [])
 	}
 
 	$aLimitation = explode('|', $limitation);
-	$sCountry = $aLimitation[0];
-	$sCity = $aLimitation[1];
+	$sCountry = $aLimitation[0] ?? '';
+	$sCity = $aLimitation[1] ?? '';
 
 	if ($aParams && $aParams['ip_cityName'] && $aParams['ip_countryCode']) {
 		return MAX_limitationsMatchStringValue($aParams['ip_countryCode'], $sCountry, '==')

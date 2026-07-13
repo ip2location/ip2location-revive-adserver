@@ -9,7 +9,7 @@
     <authorUrl>https://www.ip2location.com/</authorUrl>
     <license>MIT</license>
     <description>IP2Location Geotargeting API Plugin</description>
-    <version>2.3.0</version>
+    <version>2.4.0</version>
     <oxversion>4.2.0</oxversion>
     <extends>deliveryLimitations</extends>
 
@@ -52,6 +52,12 @@
 
             <file path="{MODULEPATH}deliveryLimitations/Geo/">IP2LocationZIPCode.class.php</file>
             <file path="{MODULEPATH}deliveryLimitations/Geo/">IP2LocationZIPCode.delivery.php</file>
+
+            <file path="{MODULEPATH}deliveryLimitations/Geo/">IP2LocationCategory.class.php</file>
+            <file path="{MODULEPATH}deliveryLimitations/Geo/">IP2LocationCategory.delivery.php</file>
+
+            <file path="{MODULEPATH}deliveryLimitations/Geo/">IP2LocationDistrict.class.php</file>
+            <file path="{MODULEPATH}deliveryLimitations/Geo/">IP2LocationDistrict.delivery.php</file>
 
 			<file path="{MODULEPATH}deliveryLimitations/Geo/">IP2LocationProxyType.class.php</file>
             <file path="{MODULEPATH}deliveryLimitations/Geo/">IP2LocationProxyType.delivery.php</file>
@@ -107,6 +113,12 @@
            </component>
 		    <component>
                <name>IP2LocationProxyType</name>
+           </component>
+           <component>
+               <name>IP2LocationCategory</name>
+           </component>
+           <component>
+               <name>IP2LocationDistrict</name>
            </component>
 
         </components>

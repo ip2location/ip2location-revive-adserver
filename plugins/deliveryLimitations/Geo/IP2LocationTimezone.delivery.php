@@ -3,7 +3,7 @@
 
 require_once MAX_PATH . '/lib/max/Delivery/limitations.delivery.php';
 
-function MAX_checkGeo_IP2LocationTimeZone($limitation, $op, $aParams = [])
+function MAX_checkGeo_IP2LocationTimezone($limitation, $op, $aParams = [])
 {
 	if (empty($aParams)) {
 		$aParams = $GLOBALS['_MAX']['CLIENT_GEO'];

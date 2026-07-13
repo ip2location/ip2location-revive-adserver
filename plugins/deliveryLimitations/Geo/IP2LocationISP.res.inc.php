@@ -1,8 +1,4 @@
 <?php
 
 
-$res = [
-	'low',
-	'medium',
-	'high',
-];
+$res = [];

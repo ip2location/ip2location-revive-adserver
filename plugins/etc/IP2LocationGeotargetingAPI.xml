@@ -9,7 +9,7 @@
     <authorUrl>https://www.ip2location.com/</authorUrl>
     <license>MIT</license>
     <description>IP2Location Geotargeting API Plugin</description>
-    <version>2.3.0</version>
+    <version>2.4.0</version>
     <oxversion>4.2.0</oxversion>
     <type>package</type>
 

@@ -9,12 +9,13 @@
 	<authorUrl>https://www.ip2location.com/</authorUrl>
 	<license>MIT</license>
 	<description>IP2Location Geotargeting API Plugin</description>
-	<version>2.3.0</version>
+	<version>2.4.0</version>
 	<oxversion>4.2.0</oxversion>
 	<extends>geoTargeting</extends>
 
 	<install>
 		<files>
+			<file path="{GROUPPATH}/">processSettings.php</file>
 			<file path="{MODULEPATH}geoTargeting/IP2LocationGeotargetingAPI/">IP2LocationGeotargetingAPI.class.php</file>
 			<file path="{MODULEPATH}geoTargeting/IP2LocationGeotargetingAPI/">IP2LocationGeotargetingAPI.delivery.php</file>
 			<file path="{MODULEPATH}geoTargeting/IP2LocationGeotargetingAPI/lib/">IP2Location.php</file>
@@ -28,9 +29,9 @@
 			<setting key="iokey" type="text" label="IP2Location.io Geolocation Service API Key" size="64" visible="1"></setting>
 		</configuration>
 		<components>
-		   <component>
-			   <name>IP2LocationGeotargetingAPI</name>
-		   </component>
+			<component>
+				<name>IP2LocationGeotargetingAPI</name>
+			</component>
 		</components>
 	</install>
 </plugin>

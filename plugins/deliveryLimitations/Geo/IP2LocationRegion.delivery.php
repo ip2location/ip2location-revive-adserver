@@ -14,8 +14,8 @@ function MAX_checkGeo_IP2LocationRegion($limitation, $op, $aParams = [])
 	}
 
 	$aLimitation = explode('|', $limitation);
-	$sCountry = $aLimitation[0];
-	$sRegions = $aLimitation[1];
+	$sCountry = $aLimitation[0] ?? '';
+	$sRegions = $aLimitation[1] ?? '';
 
 	if ($aParams && $aParams['ip_regionName'] && $aParams['ip_countryCode']) {
 		return MAX_limitationsMatchStringValue($aParams['ip_countryCode'], $sCountry, '==')

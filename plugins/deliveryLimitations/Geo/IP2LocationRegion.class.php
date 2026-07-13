@@ -20,6 +20,8 @@ class Plugins_DeliveryLimitations_Geo_IP2LocationRegion extends Plugins_Delivery
 		}
 	}
 
+	function displayArrayData() {}
+
 	function displayData()
 	{
 		$this->data = $this->_expandData($this->data);

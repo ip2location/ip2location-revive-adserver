@@ -60,27 +60,33 @@ function getGeo($ipAddress)
 				'ip_areaCode'    => $records['areaCode'],
 				'ip_elevation'   => $records['elevation'],
 				'ip_usageType'   => $records['usageType'],
+				'ip_category'    => $records['category'],
+				'ip_district'    => $records['district'],
 			];
 		}
 	}
 
-	// If not found, try local IP2Proxy database
+	// Try IP2Proxy database independently to populate proxy fields.
+	// Requires IP2Proxy.php v3.x — update via: composer require ip2location/ip2proxy-php ^3
 	$pxLocation = $conf['IP2LocationGeotargetingAPI']['pxlocation'] ?? null;
-	if (empty($aUserDetails) && $pxLocation && file_exists($pxLocation) && is_readable($pxLocation)) {
+	if ($pxLocation && file_exists($pxLocation) && is_readable($pxLocation)) {
 		require_once __DIR__ . '/lib/IP2Proxy.php';
-		$db = new \IP2Proxy\Database();
-		if ($db->open($pxLocation, \IP2Proxy\Database::FILE_IO)) {
-			$records = $db->getAll($ipAddress);
-			if ($records && $records['countryCode'] !== '?') {
-				$aUserDetails = [
-					'ip_countryCode' => $records['countryCode'],
-					'ip_regionName'  => $records['regionName'],
-					'ip_cityName'    => $records['cityName'],
-					'ip_isProxy'     => $records['isProxy'],
-					'ip_proxyType'   => $records['proxyType'],
-					'ip_isp'         => $records['isp'],
-				];
+		try {
+			$db = new \IP2Proxy\Database($pxLocation, \IP2Proxy\Database::FILE_IO);
+			$records = $db->lookup($ipAddress, \IP2Proxy\Database::ALL);
+			if ($records && isset($records['isProxy'])) {
+				$aUserDetails['ip_isProxy']   = $records['isProxy'];
+				$aUserDetails['ip_proxyType'] = $records['proxyType'] ?? '';
+				// Fill geo fields from proxy DB only when BIN DB did not provide them
+				if (empty($aUserDetails['ip_countryCode']) && ($records['countryCode'] ?? '?') !== '?') {
+					$aUserDetails['ip_countryCode'] = $records['countryCode'];
+					$aUserDetails['ip_regionName']  = $records['regionName'] ?? '';
+					$aUserDetails['ip_cityName']     = $records['cityName'] ?? '';
+					$aUserDetails['ip_isp']          = $records['isp'] ?? '';
+				}
 			}
+		} catch (\Exception $e) {
+			OX_Delivery_logMessage('IP2LocationAPI (proxy) - ' . $e->getMessage(), 4);
 		}
 	}
 
@@ -115,6 +121,8 @@ function getGeo($ipAddress)
 					'ip_areaCode'    => $json->area_code ?? '',
 					'ip_elevation'   => $json->elevation ?? '',
 					'ip_usageType'   => $json->usage_type ?? '',
+					'ip_category'    => $json->category ?? '',
+					'ip_district'    => $json->district ?? '',
 				];
 			}
 		}
@@ -127,9 +135,25 @@ function getGeo($ipAddress)
 	throw new Exception('Unable to retrieve geolocation data for the IP address.');
 }
 
+function _cookieHmac($payload)
+{
+	$conf = $GLOBALS['_MAX']['CONF'];
+	$secret = $conf['database']['password'] ?? '';
+	return hash_hmac('sha256', $payload, 'ip2loc.' . $secret);
+}
+
 function _unpackCookie($cookieString = '')
 {
-	$decodedData = base64_decode($cookieString);
+	$parts = explode('.', $cookieString, 2);
+	if (count($parts) !== 2) {
+		return false;
+	}
+	[$payload, $mac] = $parts;
+	if (!hash_equals(_cookieHmac($payload), $mac)) {
+		return false;
+	}
+
+	$decodedData = base64_decode($payload);
 	if ($decodedData === false) {
 		return false;
 	}
@@ -141,7 +165,8 @@ function _unpackCookie($cookieString = '')
 
 function _packCookie($data = [])
 {
-	return base64_encode(json_encode($data));
+	$payload = base64_encode(json_encode($data));
+	return $payload . '.' . _cookieHmac($payload);
 }
 
 function _fetchJsonFromApi($url)
@@ -151,6 +176,8 @@ function _fetchJsonFromApi($url)
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 	curl_setopt($ch, CURLOPT_TIMEOUT, 5);
 	curl_setopt($ch, CURLOPT_FAILONERROR, true);
+	curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
+	curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 2);
 
 	$response = curl_exec($ch);
 

@@ -12,6 +12,8 @@ class Plugins_DeliveryLimitations_Geo_IP2LocationElevation extends Plugins_Deliv
 		$this->nameEnglish = 'IP2Location - Elevation&nbsp;&nbsp;';
 	}
 
+	function displayArrayData() {}
+
 	function displayData()
 	{
 		global $tabindex;

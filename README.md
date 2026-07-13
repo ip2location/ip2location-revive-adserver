@@ -1,8 +1,8 @@
 # IP2Location Plugin for Revive Adserver
 
-This plugin enables publishers to customize advertisement  delivery options by visitor's country, region, city, time zone, ISP  name, connection speed, domain name, area code, ZIP code, elevation, and usage type.
+This plugin enables publishers to customize advertisement  delivery options by visitor's country, region, city, time zone, ISP  name, connection speed, domain name, area code, ZIP code, elevation, usage type, category, and district.
 
-Supports up to Revive Adserver 5.x.
+Supports up to Revive Adserver 5.x and 6.x.
 
 
 
@@ -11,7 +11,7 @@ Supports up to Revive Adserver 5.x.
 1. Download a IP2Location BIN database from https://lite.ip2location.com (Free) or https://www.ip2location.com (Commercial).
 2. Decompress the database and upload the BIN file to your server.
 3. Go to **Plugins** tab in Revive Adserver administration panel.
-4. Browse the IP2Location package downloaded from release page and press **Install**.
+4. Browse the **IP2LocationGeotargetingAPI.zip** downloaded from release page and press **Install**.
 5. Find **IP2LocationGeotargetingAPI** in the plugin list and click on "Details".
 6. Under the **IP2LocationGeotargetingAPI** group, click on "Settings" and configure your IP2Location settings.
 7. Insert the absolute path of your IP2Location BIN database in **IP2Location BIN Database Location**.

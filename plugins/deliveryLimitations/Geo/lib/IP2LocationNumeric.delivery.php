@@ -17,7 +17,7 @@ function IP2Location_limitationMatchNumeric($paramName, $limitation, $op, $aPara
 	}
 
 	if (!isset($aParams[$paramName]) || !is_numeric($aParams[$paramName]) || !is_numeric($limitation)) {
-		return !($op);
+		return !IP2Location_limitationsIsOperatorPositive($op);
 	}
 	$value = $aParams[$paramName];
 
